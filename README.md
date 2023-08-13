@@ -68,7 +68,7 @@ We experiment with the influence of input image sizes on accuracy and inference 
 | MobileNetV2 (128x128)     | 0.96875       | 7                             |
 | MobileNetV2 (224x224)     | 1.0           | 13                            |
 
-We observe an improve in test accuracy as we improve the input image size, at the expense of inference time. This is a common dilemma in real-time applications: finding the good equilibrium between accuracy and inference time. In embedded systems, there's also a trade-off to consider regarding model size and computational efficiency.
+We observe an improvement in test accuracy as we improve the input image size, at the expense of inference time. This is a common dilemma in real-time applications: finding the good equilibrium between accuracy and inference time. In embedded systems, there's also a trade-off to consider regarding model size and computational efficiency.
 
 Remarkably, even with image sizes of 32x32, promising results are obtained, as seen below:
 
