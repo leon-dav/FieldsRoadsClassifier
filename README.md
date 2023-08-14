@@ -7,7 +7,7 @@ Train an image classification model using transfer learning with a limited datas
 Our dataset consists of 163 images, distributed as follows:
 - 45 images categorized as "fields"
 - 108 images categorized as "roads"
-- 10 images are unannotated, which can belong to either "fields" or "roads"
+- 10 images are unannotated, but either "field" or "road"
 
 All images are at high resolution, but their sizes vary.
 
@@ -36,10 +36,10 @@ Data augmentation techniques such as random horizontal flips, small rotations, a
 ### Dataset Segmentation
 
 We construct four distinct datasets:
-- Training dataset: Used for model training.
-- Validation dataset: Monitors the model's learning progress.
-- Test dataset: Contains annotated images for model testing.
-- Qualitative test dataset: Includes unannotated images for visual performance analysis.
+- Training dataset: Used for model training (70% of the annotated images).
+- Validation dataset: Monitors the model's learning progress (15% of the annotated images).
+- Test dataset: Contains annotated images for model testing (15% of the annotated images).
+- Qualitative test dataset: Includes unannotated images for visual performance analysis (10 unannotated images).
 
 
 ## Results and Experiments
@@ -48,12 +48,12 @@ We construct four distinct datasets:
 
 We experiment with various pre-trained models as feature extractors, fixing the input images to a size of (224, 224) and a batch size of 16. For each network, we implement early stopping with a patience of 5 during training.
 
-| Model           | Test Accuracy |
-| --------------- | ------------- |
-| MobileNetV2     | 0.96875       |
-| ConvNeXtBase    | 0.96875       |
-| DenseNet121     | 1.0           |
-| EfficientNetB0  | 1.0           |
+| Feature extractor | Final Test Accuracy |
+| ----------------- | ------------------- |
+| MobileNetV2       | 0.96875             |
+| ConvNeXtBase      | 0.96875             |
+| DenseNet121       | 1.0                 |
+| EfficientNetB0    | 1.0                 |
 
 The feature extractor has minimal impact on performance for this problem.
 
@@ -70,7 +70,7 @@ We experiment with the influence of input image sizes on accuracy and inference 
 
 We observe an improvement in test accuracy as we improve the input image size, at the expense of inference time. This is a common dilemma in real-time applications: finding the good equilibrium between accuracy and inference time. In embedded systems, there's also a trade-off to consider regarding model size and computational efficiency.
 
-Remarkably, even with image sizes of 32x32, promising results are obtained, as seen below:
+Remarkably, even with image sizes of 32x32, promising results are obtained, as seen below qualitatively on the 10 unannotated images:
 
 ![Qualitative results](images/image_predictions_mobilenetv2_32.png)
 

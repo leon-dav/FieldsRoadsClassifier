@@ -3,7 +3,7 @@ import tensorflow as tf
 from utils import data_loader, get_model
 
 
-IMG_SIZE = (64, 64)
+IMG_SIZE = (224, 224)
 BATCH_SIZE = 16
 EPOCHS = 300
 PATIENCE = 5
