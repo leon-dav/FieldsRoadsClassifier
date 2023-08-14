@@ -9,7 +9,7 @@ EPOCHS = 300
 PATIENCE = 5
 
 ###################################################################
-# Load data and create 4 datasets: train, validation, test
+# Load data and create 4 datasets: train, validation, test and qualitative test
 ###################################################################
 
 train_ds, val_ds, test_ds, qualitatif_test_ds, class_names = data_loader(
